@@ -1,0 +1,22 @@
+<script>
+  /**
+   * @param {number[]} nums
+   * @param {number} target
+   * @return {number[]}
+   */
+  var nums = [2, 7, 11, 15];
+
+  var twoSum = function(nums, target) {
+    const previousValues = {};
+    for (let i = 0; i < nums.length; i++) {
+      const currentNumber = nums[i];
+      const neededValue = target - currentNumber;
+      const prop = previousValues[neededValue];
+
+      if (prop != null) return [prop, i];
+      previousValues[currentNumber] = i;
+    }
+  };
+  const result = twoSum(nums, 9);
+  console.log(result);
+</script>
